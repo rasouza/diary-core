@@ -6,8 +6,8 @@ const schemas = () => ([{
   required: ['summary'],
   properties: {
     date: {
-      type: 'string'
-      // format: 'date'
+      type: 'string',
+      format: 'date'
     },
     summary: { type: 'string' },
     description: { type: 'string' },
@@ -17,7 +17,7 @@ const schemas = () => ([{
     },
     link: {
       type: 'string',
-      pattern: '[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)'
+      format: 'url'
     },
     user: { type: 'string' }
   }
