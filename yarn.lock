@@ -249,7 +249,7 @@
     "@sentry/types" "5.29.2"
     tslib "^1.9.3"
 
-"@sentry/node@^5.29.2":
+"@sentry/node@^5.29.2", "@sentry/node@^5.9.0":
   version "5.29.2"
   resolved "https://registry.yarnpkg.com/@sentry/node/-/node-5.29.2.tgz#f0f0b4b2be63c9ddd702729fab998cead271dff1"
   integrity sha512-98m1ZejmJgA+eiz6jEFyYYfp6kJZQnx6d6KrJDMxGfss4YTmmJY57bE4xStnjjk7WINDGzlCiHuk+wJFMBjuoA==
@@ -1388,10 +1388,25 @@ fastify-helmet@^5.1.0:
     fastify-plugin "^3.0.0"
     helmet "^4.0.0"
 
+fastify-plugin@^1.2.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.6.1.tgz#122f5a5eeb630d55c301713145a9d188e6d5dd5b"
+  integrity sha512-APBcb27s+MjaBIerFirYmBLatoPCgmHZM6XP0K+nDL9k0yX8NJPWDY1RAC3bh6z+AB5ULS2j31BUfLMT3uaZ4A==
+  dependencies:
+    semver "^6.3.0"
+
 fastify-plugin@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
+
+fastify-sentry@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/fastify-sentry/-/fastify-sentry-1.4.0.tgz#dbe98c93b329e38a97bb60c3bcd1a3826803ed49"
+  integrity sha512-U4uhbiYt1kodMzp6Ph/aAYSJtZoFm/PaH5h4LOdcwFX/mf3qv4n+CYF0NGZquDa8V4k0B7qXzJGmuWoyvWeRYQ==
+  dependencies:
+    "@sentry/node" "^5.9.0"
+    fastify-plugin "^1.2.1"
 
 fastify-static@^3.3.1:
   version "3.3.1"

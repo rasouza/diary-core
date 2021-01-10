@@ -2,6 +2,7 @@ const each = require('lodash/fp/each')
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
 const helmet = require('fastify-helmet')
+const sentry = require('fastify-sentry')
 const path = require('path')
 
 const setupSchemas = server => each(schema => server.addSchema(schema))
@@ -22,6 +23,10 @@ module.exports = ({ routes, routeSchemas, FastifyLogger }) => {
   })
 
   server.register(helmet)
+  server.register(sentry, {
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.NODE_ENV
+  })
 
   setupSchemas(server)(routeSchemas)
   setupRoutes(server)(routes)
