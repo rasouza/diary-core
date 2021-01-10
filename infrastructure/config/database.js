@@ -1,15 +1,15 @@
 const { asFunction } = require('awilix')
 
 const inMemoryDB = container => {
-  const UserRepositoryInMemory = require('../repositories/UserRepositoryInMemory')
+  const StoryRepositoryInMemory = require('../repositories/StoryRepositoryInMemory')
 
   container.register({
-    UserRepository: asFunction(UserRepositoryInMemory).singleton()
+    StoryRepository: asFunction(StoryRepositoryInMemory).singleton()
   })
 }
 
 const mongoDB = container => {
-  const UserRepositoryMongo = require('../repositories/UserRepositoryMongo')
+  const StoryRepositoryMongo = require('../repositories/StoryRepositoryMongo')
 
   // Load Database and Schemas
   container.loadModules([
@@ -17,7 +17,7 @@ const mongoDB = container => {
   ])
 
   container.register({
-    UserRepository: asFunction(UserRepositoryMongo)
+    StoryRepository: asFunction(StoryRepositoryMongo)
   })
 }
 

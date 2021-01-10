@@ -15,7 +15,7 @@ const resolveLogger = container => {
   })
 
   container.register({
-    LoggerConfig: asValue(config)
+    FastifyLogger: asValue(config)
   })
 }
 

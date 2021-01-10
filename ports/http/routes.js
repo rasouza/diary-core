@@ -1,32 +1,13 @@
-module.exports = ({ UsersController }) => [
-  {
-    method: 'GET',
-    path: '/users',
-    handler: UsersController.listUsers
-  },
+module.exports = ({ StoriesController }) => [
   {
     method: 'POST',
-    path: '/users',
-    handler: UsersController.createUser
-  },
-  {
-    method: 'GET',
-    path: '/users/:id',
-    handler: UsersController.findUser
-  },
-  {
-    method: 'DELETE',
-    path: '/users/:id',
-    handler: UsersController.deleteUser
-  },
-  {
-    method: 'PATCH',
-    path: '/users/:id',
-    handler: UsersController.updateUser
-  },
-  {
-    method: 'PUT',
-    path: '/users/:id',
-    handler: UsersController.updateUser
+    path: '/stories',
+    schema: {
+      body: { $ref: 'StorySchema#/definitions/body' },
+      response: {
+        201: { $ref: 'StorySchema#/definitions/response/2xx' }
+      }
+    },
+    handler: StoriesController.create
   }
 ]

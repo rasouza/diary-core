@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "git-tag",
+    "released",
+    "conventional-commits"
+  ],
+  "owner": "rasouza",
+  "repo": "diary-core",
+  "name": "R. A. Souza",
+  "email": "alves.wm@gmail.com",
+  "onlyPublishWithReleaseLabel": true
+}
