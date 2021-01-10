@@ -1,0 +1,48 @@
+env:
+  IMAGE_NAME: "rasouza/diary-core"
+  IMAGE_TAG: ${BUILDKITE_COMMIT:0:7}
+
+steps:
+  - name: ":hammer:"
+    command: 
+      - docker build --target build -t diary-core .
+
+  - wait
+  
+  - name: ":stylelint:"
+    command:
+      - docker build --target lint -t diary-core .
+      - docker run --rm diary-core 
+
+  - wait
+
+  - name: ":react:"
+    command:
+      - docker build --target testing -t diary-core .
+      - docker run --rm diary-core
+
+  - wait
+  
+  - name: ":docker: ${IMAGE_TAG}"
+    branches: master
+    command:
+      - docker build --target release -t diary-core .
+      
+  - wait
+  
+  - name: ":react:"
+    branches: master
+    command:
+      - docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
+      - docker push ${IMAGE_NAME}
+              
+  - wait
+
+  - name: ":rocket:"
+    branches: master
+    trigger: diary-deploy
+    build:
+      message: "${BUILDKITE_MESSAGE}"
+      env:
+        IMAGE_TAG: ${BUILDKITE_COMMIT:0:7}
+        SERVICE: core
