@@ -8,6 +8,6 @@ services:
     volumes:
       - ${PWD}/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     environment:
-      MONGO_INITDB_DATABASE: users
+      MONGO_INITDB_DATABASE: core
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root 
