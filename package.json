@@ -25,6 +25,7 @@
     "fastify": "^3.9.2",
     "fastify-static": "^3.3.1",
     "lodash-fp": "^0.10.4",
+    "luxon": "^1.25.0",
     "make-promises-safe": "^5.1.0",
     "mongoose": "^5.9.18",
     "pino": "^6.9.0"
