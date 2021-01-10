@@ -16,21 +16,22 @@ steps:
 
   - wait
 
-  - name: ":react:"
+  - name: ":codeclimate:"
     command:
       - docker build --target testing -t diary-core .
       - docker run --rm diary-core
 
   - wait
   
-  - name: ":docker: ${IMAGE_TAG}"
+  - name: ":nodejs:"
     branches: master
     command:
-      - docker build --target release -t diary-core .
+      - docker build --build-arg token=$GH_TOKEN --target release -t diary-core .
+      - docker run --rm diary-core # Create release notes
       
   - wait
   
-  - name: ":react:"
+  - name: ":docker: ${IMAGE_TAG}"
     branches: master
     command:
       - docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .

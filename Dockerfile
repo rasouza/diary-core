@@ -30,9 +30,12 @@ CMD ["yarn", "test"]
 FROM node:$NODE_VERSION as release
 
 ARG APP_DIR
+ARG token
+ENV GH_TOKEN=$token
 WORKDIR $APP_DIR
 COPY --from=build $APP_DIR/ .
 RUN yarn build
+CMD ["npx", "auto", "release"]
 
 # Serve files with nginx
 FROM nginx:latest as serve
