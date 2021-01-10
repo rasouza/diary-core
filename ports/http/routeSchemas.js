@@ -6,7 +6,7 @@ const schemas = () => ([
     type: 'object',
     definitions: {
       body: {
-        required: ['summary'],
+        required: ['summary', 'user'],
         properties: {
           id: { type: 'string' },
           date: {
