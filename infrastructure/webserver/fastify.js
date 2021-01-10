@@ -2,12 +2,36 @@ const each = require('lodash/fp/each')
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
 const path = require('path')
+const Ajv = require('ajv')
+const addFormats = require('ajv-formats')
 
-module.exports = ({ routes, LoggerConfig }) => {
+module.exports = ({ routes, routeSchemas, FastifyLogger }) => {
   const server = fastify({
-    logger: LoggerConfig
+    logger: FastifyLogger
   })
 
+  const ajv = new Ajv({
+    removeAdditional: true,
+    useDefaults: true,
+    coerceTypes: true,
+    nullable: true
+  })
+  addFormats(ajv)
+
+  fastify.setValidatorCompiler(({ schema, method, url, httpPart }) => {
+    return ajv.compile(schema)
+  })
+
+  /**
+   * Setup route schemas
+   */
+  each(schema => {
+    server.addSchema(schema)
+  })(routeSchemas)
+
+  /**
+   * Setup routes
+   */
   each(path => {
     server.route(path)
   })(routes)
