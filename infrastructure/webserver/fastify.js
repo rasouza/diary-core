@@ -16,6 +16,8 @@ const setupStatic = server => {
   server.get('/coverage/', (req, res) => { res.sendFile('coverage/') })
 }
 
+// TODO: Create OpenAPI from Fastify
+
 module.exports = ({ routes, routeSchemas, FastifyLogger }) => {
   const server = fastify({
     logger: FastifyLogger
