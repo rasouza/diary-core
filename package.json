@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "start": "node index.js",
-    "test": "NODE_ENV=test nyc --reporter=html --report-dir=coverage mocha --require test/hooks.js --recursive --parallel"
+    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=html --report-dir=coverage mocha --require test/hooks.js --recursive --parallel"
   },
   "repository": {
     "type": "git",
