@@ -26,7 +26,7 @@ WORKDIR $APP_DIR
 COPY --from=build $APP_DIR/ .
 CMD ["yarn", "test"]
 
-# Build the app
+# Release the app
 FROM node:$NODE_VERSION as release
 
 ARG APP_DIR
@@ -34,13 +34,4 @@ ARG token
 ENV GH_TOKEN=$token
 WORKDIR $APP_DIR
 COPY --from=build $APP_DIR/ .
-RUN yarn build
 CMD ["npx", "auto", "release"]
-
-# Serve files with nginx
-FROM nginx:latest as serve
-
-ARG APP_DIR
-WORKDIR $APP_DIR
-COPY --from=release $APP_DIR/build/ /usr/share/nginx/html/
-WORKDIR /usr/share/nginx/html/
