@@ -19,9 +19,10 @@ steps:
   - name: ":codeclimate:"
     command:
       - docker build --target testing -t diary-core .
+      - mkdir -p coverage
       - cc-test-reporter before-build
       - docker run --name diary-core diary-core
-      - docker cp diary-core:/opt/diary-core/coverage/lcov.info ./lcov.info
+      - docker cp diary-core:/opt/diary-core/coverage/lcov.info coverage/lcov.info
       - cc-test-reporter -t lcov after-build
       - docker rm -f diary-core
 
