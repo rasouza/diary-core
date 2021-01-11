@@ -1,4 +1,7 @@
-node_modules/
-.nyc_output/
-coverage/
+# Folders
+node_modules
+.nyc_output
+coverage
+
+# Files
 .env
