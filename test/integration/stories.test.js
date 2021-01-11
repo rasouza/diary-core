@@ -75,7 +75,7 @@ describe('Stories API', async () => {
         await chai.request('http://localhost:3000')
           .post('/stories')
           .send(story)
-          .catch(res => {
+          .then(res => {
             expect(res).to.have.status(400)
             expect(res.body).to.contain({
               message: "body should have required property 'summary'"
@@ -91,7 +91,7 @@ describe('Stories API', async () => {
         await chai.request('http://localhost:3000')
           .post('/stories')
           .send(story)
-          .catch(res => {
+          .then(res => {
             expect(res).to.have.status(400)
             expect(res.body).to.contain({
               message: "body should have required property 'user'"
@@ -101,7 +101,7 @@ describe('Stories API', async () => {
 
       it("can't parse date", async () => {
         const story = {
-          date: 'wrong-date-format',
+          date: '2020-13-01',
           summary: 'I created an API in NodeJS',
           repo: 'rasouza/diary',
           user: 'objectId1234'
@@ -110,11 +110,8 @@ describe('Stories API', async () => {
         await chai.request('http://localhost:3000')
           .post('/stories')
           .send(story)
-          .catch(res => {
-            expect(res).to.have.status(400)
-            expect(res.body).to.contain({
-              message: 'body.date should match format "date"'
-            })
+          .then(res => {
+            expect(res).to.have.status(422)
           })
       })
     })
@@ -129,7 +126,7 @@ describe('Stories API', async () => {
         await chai.request('http://localhost:3000')
           .post('/stories')
           .send(story)
-          .catch(res => {
+          .then(res => {
             expect(res).to.have.status(404)
             expect(res.body).to.contain({
               message: 'User not found'
