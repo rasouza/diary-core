@@ -16,7 +16,7 @@ const setupStatic = server => {
   server.register(
     fastifyPrettier,
     {
-      fallbackOnError: false
+      fallbackOnError: true
     }
   )
   server.get('/docs/', (req, res) => { res.sendFile('docs/') })
