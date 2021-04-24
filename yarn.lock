@@ -476,6 +476,13 @@
     "@octokit/openapi-types" "^2.2.0"
     "@types/node" ">= 8"
 
+"@ory/kratos-client@^0.5.4-alpha.1":
+  version "0.5.4-alpha.1"
+  resolved "https://registry.yarnpkg.com/@ory/kratos-client/-/kratos-client-0.5.4-alpha.1.tgz#6a87a90fd858fc4cb792253b109ea53884098107"
+  integrity sha512-koqwcEtEtGoHdX/WU3O4u6UmbMzbmbA06t5qIZv9S4YauxHZIVZM3VMws1ZK5ObgAMI6O5dCs4WYJrJq+QN48g==
+  dependencies:
+    axios "^0.19.2"
+
 "@sentry/core@5.29.2":
   version "5.29.2"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-5.29.2.tgz#9e05fe197234161d57aabaf52fab336a7c520d81"
@@ -899,6 +906,13 @@ awilix@^4.2.6:
   dependencies:
     camel-case "^4.1.1"
     glob "^7.1.6"
+
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -1397,7 +1411,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@3.1.0:
+debug@3.1.0, debug@=3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz"
   integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
@@ -1999,6 +2013,15 @@ fastify-plugin@^3.0.0:
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
   integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
 
+fastify-prettier@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/fastify-prettier/-/fastify-prettier-1.1.7.tgz#d1abce5e06fbbc30a1d7db3983e595b2be041060"
+  integrity sha512-3Bfio6qEyQaxNfL3lIyr2v3zsILPVjKGKO0bBhiCz70voHZ5pHvnI/YZDsiExXU0jNFupIWh68bKv+kDG4uaCw==
+  dependencies:
+    fastify-plugin "^3.0.0"
+    is-stream "^2.0.0"
+    prettier "^2.1.2"
+
 fastify-sentry@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/fastify-sentry/-/fastify-sentry-1.4.0.tgz#dbe98c93b329e38a97bb60c3bcd1a3826803ed49"
@@ -2159,6 +2182,13 @@ flatted@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.0.tgz"
   integrity sha512-tW+UkmtNg/jv9CSofAKvgVcO7c2URjhTdW1ZTkcAritblu8tajiYy7YisnIflEwtKssCtOxpnBRoCB7iap0/TA==
+
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  dependencies:
+    debug "=3.1.0"
 
 foreground-child@^2.0.0:
   version "2.0.0"
@@ -3987,6 +4017,11 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+prettier@^2.1.2:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
 
 pretty-ms@^7.0.0:
   version "7.0.1"
