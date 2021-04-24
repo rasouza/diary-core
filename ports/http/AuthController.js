@@ -1,5 +1,3 @@
-const kratos = require('@ory/kratos-client')
-
 const AuthController = (container) => ({
   callback: async (req, res) => {
     const { Auth, Logger } = container
