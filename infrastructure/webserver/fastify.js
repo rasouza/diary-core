@@ -31,6 +31,7 @@ module.exports = ({ routes, routeSchemas, FastifyLogger }) => {
   })
 
   server.register(helmet)
+  server.register(require('fastify-healthcheck'))
 
   setupSchemas(server)(routeSchemas)
   setupRoutes(server)(routes)
