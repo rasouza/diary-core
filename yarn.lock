@@ -2005,6 +2005,18 @@ fastify-error@^0.2.0:
   resolved "https://registry.yarnpkg.com/fastify-error/-/fastify-error-0.2.0.tgz"
   integrity sha512-zabxsBatj59ROG0fhP36zNdc5Q1/eYeH9oSF9uvfrurZf8/JKfrJbMcIGrLpLWcf89rS6L91RHWm20A/X85hcA==
 
+fastify-error@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/fastify-error/-/fastify-error-0.3.1.tgz#8eb993e15e3cf57f0357fc452af9290f1c1278d2"
+  integrity sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==
+
+fastify-healthcheck@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-healthcheck/-/fastify-healthcheck-3.1.0.tgz#ea104bbd28a1250a1be8c7466331f17927d20f15"
+  integrity sha512-G8G+RHYQh4JP3qv/OaFlGgFvZfExL3+khdoRfTwaRCsipprk4qXrsoI25O11k1bIyihZgeyG7LIbt0PdHjJUMw==
+  dependencies:
+    under-pressure "^5.6.0"
+
 fastify-helmet@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/fastify-helmet/-/fastify-helmet-5.1.0.tgz#ceea57e345260efc5338932d6d25343fd7aa9f2f"
@@ -5136,6 +5148,14 @@ undefsafe@^2.0.2:
   integrity sha512-nrXZwwXrD/T/JXeygJqdCO6NZZ1L66HrxM/Z7mIq2oPanoN0F1nLx3lwJMu6AwJY69hdixaFQOuoYsMjE5/C2A==
   dependencies:
     debug "^2.2.0"
+
+under-pressure@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/under-pressure/-/under-pressure-5.6.0.tgz#a567cb034cfecc1d1ace18b1a3bd170c471b9f2c"
+  integrity sha512-bs6ylFUxmdyi42Ruh705FLGcxe4UdDLWuD+ihbgt4iznRKW9iMgJ/jF5x6O5UzGy4WOsyNDPJCESiIvNBUTzog==
+  dependencies:
+    fastify-error "^0.3.0"
+    fastify-plugin "^3.0.0"
 
 unique-string@^2.0.0:
   version "2.0.0"
