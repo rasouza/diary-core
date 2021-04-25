@@ -1,4 +1,4 @@
-module.exports = ({ StoriesController }) => [
+module.exports = ({ StoriesController, AuthController }) => [
   {
     method: 'POST',
     path: '/stories',
@@ -9,5 +9,10 @@ module.exports = ({ StoriesController }) => [
       }
     },
     handler: StoriesController.create
+  },
+  {
+    method: 'GET',
+    path: '/auth/callback',
+    handler: AuthController.callback
   }
 ]

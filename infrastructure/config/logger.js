@@ -3,7 +3,7 @@ const { asValue } = require('awilix')
 const resolveLogger = container => {
   const isDev = process.env.NODE_ENV === 'development'
   const config = {
-    name: 'app',
+    name: 'diary-core',
     prettyPrint: isDev,
     level: process.env.LOG_LEVEL || 'info'
   }

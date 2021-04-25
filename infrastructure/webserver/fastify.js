@@ -1,6 +1,7 @@
 const each = require('lodash/fp/each')
 const fastify = require('fastify')
 const fastifyStatic = require('fastify-static')
+const fastifyPrettier = require('fastify-prettier')
 const helmet = require('fastify-helmet')
 const path = require('path')
 
@@ -12,6 +13,12 @@ const setupStatic = server => {
     root: path.join(__dirname, '../..'),
     redirect: true
   })
+  server.register(
+    fastifyPrettier,
+    {
+      fallbackOnError: true
+    }
+  )
   server.get('/docs/', (req, res) => { res.sendFile('docs/') })
   server.get('/coverage/', (req, res) => { res.sendFile('coverage/') })
 }
