@@ -1,23 +1,21 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "user management api for healthcare system",
+  "name": "diary-core",
+  "version": "0.0.0-development",
+  "description": "programming diary backend",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nodemon",
     "start": "node index.js",
-    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=html --report-dir=coverage mocha --require test/hooks.js --recursive --parallel"
+    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=html --report-dir=coverage mocha --require test/hooks.js --recursive --parallel",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rasouza/sami-test.git"
+    "url": "https://github.com/rasouza/diary-core.git"
   },
   "author": "R. A. Souza",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rasouza/sami-test/issues"
-  },
-  "homepage": "https://github.com/rasouza/sami-test#readme",
   "dependencies": {
     "@ory/kratos-client": "^0.5.4-alpha.1",
     "@sentry/node": "^5.29.2",
@@ -37,11 +35,9 @@
     "pino": "^6.9.0"
   },
   "devDependencies": {
-    "@auto-it/conventional-commits": "^10.5.1",
-    "@auto-it/git-tag": "^10.5.1",
-    "auto": "^10.5.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.12.1",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -53,6 +49,12 @@
     "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "pino-pretty": "^4.3.0",
+    "semantic-release": "^17.4.5",
     "timekeeper": "^2.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
