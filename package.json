@@ -1,6 +1,6 @@
 {
   "name": "diary-core",
-  "version": "0.0.0-development",
+  "version": "1.0.2",
   "description": "programming diary backend",
   "main": "index.js",
   "private": true,
@@ -35,6 +35,7 @@
     "pino": "^6.9.0"
   },
   "devDependencies": {
+    "@semantic-release/git": "^9.0.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cz-conventional-changelog": "3.3.0",
@@ -56,5 +57,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   }
 }
