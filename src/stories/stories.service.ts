@@ -8,18 +8,21 @@ import { Story } from './entities/story.entity';
 export class StoriesService {
   constructor(@Inject('Supabase') private db: SupabaseClient) {}
 
-  async create(createStoryDto: CreateStoryDto) {
+  async create(createStoryDto: CreateStoryDto, user_id) {
     const { data, error } = await this.db
       .from<Story>('stories')
-      .insert(createStoryDto);
+      .insert({ ...createStoryDto, user_id });
 
     if (error) throw error;
 
     return data;
   }
 
-  async findAll() {
-    const { data, error } = await this.db.from<Story>('stories').select('*');
+  async findAll(user_id) {
+    const { data, error } = await this.db
+      .from<Story>('stories')
+      .select('*')
+      .eq('user_id', user_id);
 
     if (error) throw error;
 

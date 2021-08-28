@@ -15,7 +15,7 @@ async function bootstrap() {
   app.use(helmet());
 
   const config = new DocumentBuilder()
-    .setTitle('Programming Diary API')
+    .setTitle('Coding Diary API')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);

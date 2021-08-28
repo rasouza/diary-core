@@ -1,6 +1,6 @@
 export class Story {
   id: number;
-  user_id: number;
+  user_id: string;
   repo: string;
   date: Date;
   summary: string;

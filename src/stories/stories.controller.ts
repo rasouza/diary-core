@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
 } from '@nestjs/common';
 import { StoriesService } from './stories.service';
 import { CreateStoryDto } from './dto/create-story.dto';
@@ -18,13 +19,13 @@ export class StoriesController {
   constructor(private readonly storiesService: StoriesService) {}
 
   @Post()
-  create(@Body() createStoryDto: CreateStoryDto) {
-    return this.storiesService.create(createStoryDto);
+  create(@Body() createStoryDto: CreateStoryDto, @Req() request) {
+    return this.storiesService.create(createStoryDto, request.user.id);
   }
 
   @Get()
-  findAll() {
-    return this.storiesService.findAll();
+  findAll(@Req() request) {
+    return this.storiesService.findAll(request.user.id);
   }
 
   @Get(':id')
