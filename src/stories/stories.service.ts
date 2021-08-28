@@ -9,29 +9,54 @@ export class StoriesService {
   constructor(@Inject('Supabase') private db: SupabaseClient) {}
 
   async create(createStoryDto: CreateStoryDto) {
-    return await this.db.from<Story>('stories').insert(createStoryDto);
+    const { data, error } = await this.db
+      .from<Story>('stories')
+      .insert(createStoryDto);
+
+    if (error) throw error;
+
+    return data;
   }
 
   async findAll() {
-    return await this.db.from<Story>('stories').select('*');
+    const { data, error } = await this.db.from<Story>('stories').select('*');
+
+    if (error) throw error;
+
+    return data;
   }
 
   async findOne(id: number) {
-    return await this.db
+    const { data, error } = await this.db
       .from<Story>('stories')
       .select('*')
       .eq('id', id)
       .maybeSingle();
+
+    if (error) throw error;
+
+    return data;
   }
 
   async update(id: number, updateStoryDto: UpdateStoryDto) {
-    return await this.db
+    const { data, error } = await this.db
       .from<Story>('stories')
       .update(updateStoryDto)
       .eq('id', id);
+
+    if (error) throw error;
+
+    return data;
   }
 
   async remove(id: number) {
-    return await this.db.from<Story>('stories').delete().eq('id', id);
+    const { data, error } = await this.db
+      .from<Story>('stories')
+      .delete()
+      .eq('id', id);
+
+    if (error) throw error;
+
+    return data;
   }
 }
