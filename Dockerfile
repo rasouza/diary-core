@@ -6,7 +6,8 @@ FROM node:$NODE_VERSION
 ARG APP_DIR
 WORKDIR $APP_DIR
 
-RUN npm install pm2 -g
-COPY dist/ .
-# @FIXME: Command to run NestJS in production
-# CMD ["pm2-runtime", "bin/bot.js"]
+COPY dist/ ./dist/
+COPY node_modules/ ./node_modules/
+COPY package.json .
+
+CMD ["yarn", "start:prod"]
