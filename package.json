@@ -1,8 +1,8 @@
 {
   "name": "diary-core",
   "version": "2.1.0",
-  "description": "",
-  "author": "",
+  "description": "Coding Diary API",
+  "author": "R. A. Souza",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
