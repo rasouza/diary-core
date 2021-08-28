@@ -8,6 +8,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { TerminusModule } from '@nestjs/terminus';
 import { HealthController } from './health/health.controller';
 import { HttpModule } from '@nestjs/axios';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { HttpModule } from '@nestjs/axios';
     }),
     TerminusModule,
     HttpModule,
+    AuthModule,
   ],
   controllers: [AppController, HealthController],
   providers: [AppService],
