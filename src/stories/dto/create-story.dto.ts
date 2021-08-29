@@ -1,4 +1,4 @@
-import { IsDateString, IsNotEmpty, IsUrl } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsOptional, IsUrl } from 'class-validator';
 
 export class CreateStoryDto {
   @IsNotEmpty()
@@ -12,6 +12,7 @@ export class CreateStoryDto {
 
   thoughts?: string;
 
+  @IsOptional()
   @IsUrl()
   link?: string;
 
