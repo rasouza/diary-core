@@ -10,6 +10,7 @@ export class CreateStoryDto {
   @IsNotEmpty()
   summary: string;
 
+  @IsOptional()
   thoughts?: string;
 
   @IsOptional()
