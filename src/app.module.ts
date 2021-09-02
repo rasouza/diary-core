@@ -8,10 +8,12 @@ import { TerminusModule } from '@nestjs/terminus';
 import { HealthController } from './health/health.controller';
 import { HttpModule } from '@nestjs/axios';
 import { AuthModule } from './auth/auth.module';
+import { RavenInterceptor, RavenModule } from 'nest-raven';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 
 @Module({
   imports: [
-    StoriesModule,
+    AuthModule,
     ConfigModule.forRoot({ isGlobal: true }),
     SupabaseModule,
     ThrottlerModule.forRoot({
@@ -20,8 +22,15 @@ import { AuthModule } from './auth/auth.module';
     }),
     TerminusModule,
     HttpModule,
-    AuthModule,
+    RavenModule,
+    StoriesModule,
   ],
   controllers: [AppController, HealthController],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useValue: new RavenInterceptor(),
+    },
+  ],
 })
 export class AppModule {}
