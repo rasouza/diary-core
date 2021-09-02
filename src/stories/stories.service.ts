@@ -22,7 +22,8 @@ export class StoriesService {
     const { data, error } = await this.db
       .from<Story>('stories')
       .select('*')
-      .eq('user_id', user_id);
+      .eq('user_id', user_id)
+      .order('date');
 
     if (error) throw error;
 
