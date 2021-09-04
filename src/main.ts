@@ -7,6 +7,7 @@ import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import * as Sentry from '@sentry/node';
 import { LogLevel } from '@sentry/types';
+import sdk from './tracing';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -19,6 +20,11 @@ async function bootstrap() {
     logLevel: LogLevel.Debug,
     debug: true,
   });
+
+  sdk
+    .start()
+    .then(() => console.log('Tracing initialized'))
+    .catch((error) => console.log('Error initializing tracing', error));
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
