@@ -8,6 +8,7 @@ import { ConfigService } from '@nestjs/config';
 import * as Sentry from '@sentry/node';
 import { LogLevel } from '@sentry/types';
 import sdk from './tracing';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -31,6 +32,7 @@ async function bootstrap() {
   app.enableCors();
   app.use(cookieParser());
   app.use(helmet());
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   const config = new DocumentBuilder()
     .setTitle('Coding Diary API')

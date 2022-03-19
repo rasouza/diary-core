@@ -8,22 +8,24 @@ import { TerminusModule } from '@nestjs/terminus';
 import { HealthController } from './health/health.controller';
 import { HttpModule } from '@nestjs/axios';
 import { AuthModule } from './auth/auth.module';
+import { LoggerModule } from './logger/logger.module';
 import { RavenInterceptor, RavenModule } from 'nest-raven';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 
 @Module({
   imports: [
     AuthModule,
-    ConfigModule.forRoot({ isGlobal: true }),
     SupabaseModule,
-    ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 10,
-    }),
     TerminusModule,
     HttpModule,
     RavenModule,
     StoriesModule,
+    ConfigModule.forRoot({ isGlobal: true }),
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 10,
+    }),
+    LoggerModule,
   ],
   controllers: [AppController, HealthController],
   providers: [
